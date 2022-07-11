@@ -16,13 +16,20 @@
  * =====================================================================================
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+
 // pre processing 
 #define MAX 100 
 #define MESSAGE "hello world !" 
+#define SQUARE(X) ((X) * (X)) 
+#define STR(X) #X 
+#define MK_ID(N) K##N
+// #undef xxx 取消定义宏 
+
 
 struct car {
     int id;
@@ -73,6 +80,25 @@ int main(void){
     printf("color --> %d\n", c);
 
     // pre processing .... 预处理的写法 
+    printf("square --> %d\n", SQUARE(5));
+    printf("str macro --> %s\n", STR(3.14159));
+    int MK_ID(1), MK_ID(2);  // 生成变量名称 
+    MK_ID(1) = 3;
+    printf("kx --> %d\n", MK_ID(1));
+    
+    printf("This function: %s\n", __func__);
+    printf("This file: %s\n", __FILE__);
+    printf("This line: %d\n", __LINE__);
+    printf("Compiled on: %s %s\n", __DATE__, __TIME__);
+    printf("C Version: %ld\n", __STDC_VERSION__);   
+    
+    // printf scanf  scanf 不适合输入字符串处理，单个输入可以 
+    char ch;
+    scanf("%c", &ch);
+    printf("out --> %c\n", ch);
+    char ss[20];
+    puts("plesae input string : \n");
+    gets(ss);  // 当前api已经废除 
 
 
     return 0;
