@@ -37,7 +37,7 @@ int main(void){
     fclose(fp);
     
     // ====
-    FILE *q = fopen("../build/out.txt", "a");
+    FILE *q = fopen("../config/out.txt", "a");
     char x;
     while((x = getchar()) != 'q'){
         fputc(x, q);
@@ -47,14 +47,14 @@ int main(void){
     // === 
     char str[1024];
     int linecount = 0;
-    FILE *w = fopen("../build/data.txt", "r");
+    FILE *w = fopen("../config/data.txt", "r");
     while(fgets(str, sizeof(char) * 1024, w) != NULL){
         printf("%d : %s", ++linecount, str);
     }
     fclose(w);
     // fgets from stdin 模拟用户输入字符串 
     char s[1024];
-    w = fopen("../build/out.txt", "a");
+    w = fopen("../config/out.txt", "a");
     puts("please string (x to quit)");
     while(fgets(s, 1024, stdin) != NULL){
         if(s[0] == '\n') continue;
@@ -67,8 +67,8 @@ int main(void){
     fclose(w);
     
     // fwrite fread usage 
-    FILE *f1 = fopen("../build/data.txt", "rb");
-    FILE *f2 = fopen("../build/out.txt", "ab");
+    FILE *f1 = fopen("../config/data.txt", "rb");
+    FILE *f2 = fopen("../config/out.txt", "ab");
     unsigned char fc;
     while(!feof(f1)){  // feof check end of file 
         fread(&fc, sizeof(char), 1, f1);

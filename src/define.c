@@ -98,7 +98,7 @@ int main(void){
     printf("out --> %c\n", ch);
     char ss[20];
     puts("plesae input string : \n");
-    gets(ss);  // 当前api已经废除 
+    fgets(ss, sizeof(char) * 20, stdin);  // 当前api已经废除 
 
 
     return 0;
